@@ -13,7 +13,7 @@ export function getLocations() {
         dispatch(AppActions.showLoader());
         HTTP('get', `device/get-user-locations`)
             .then((result) => {
-                console.log("------------>", result);
+                console.log("result------------>", result);
                 dispatch(actionCreatorsLocations.success(result.data));
                 dispatch(AppActions.hideLoader());
             }).catch((error) => {

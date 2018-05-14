@@ -168,18 +168,6 @@ class Location extends Component {
 						<AppHeader back="Location" name="Add New Location" />
 						<Content padder>
 							<Form>
-								<View style={{ flex: 1, flexDirection: 'row' }}>
-									<Icon name="home-map-marker" size={30} color="#4486F7" style={{marginLeft: 5}}/>
-									<Text style={styles.bodyText} > Location Name </Text>
-									<Picker
-										style={{ marginBottom: 7, width: width / 2, marginLeft: 15 }}
-										selectedValue={this.state.deviceLocationTypeId}
-										onValueChange={(itemValue, itemIndex) => this.setState({ deviceLocationTypeId: itemValue })}>
-										<Picker.Item label="Home" value="1" />
-										<Picker.Item label="Organization" value="2" />
-										<Picker.Item label="Public Place" value="3" />
-									</Picker>
-								</View>
 								<TextInput
 									placeholder="Location Name"
 									style={styles.textInput}
@@ -187,6 +175,20 @@ class Location extends Component {
 									keyboardType="default"
 									onChangeText={(text) => this.setState({ locationName: text })}
 								/>
+								<View style={{ flex: 1, flexDirection: 'row' }}>
+									<Icon name="home-map-marker" size={30} color="#4486F7" style={{marginLeft: 5}}/>
+									<Text style={styles.bodyText} > Select Location Type</Text>
+									<Picker
+										style={{ marginBottom: 7, width: width / 2, marginLeft: width/8 }}
+										selectedValue={this.state.deviceLocationTypeId}
+										mode = 'dropdown'
+										onValueChange={(itemValue, itemIndex) => this.setState({ deviceLocationTypeId: itemValue })}>
+										<Picker.Item label="Home" value="1" />
+										<Picker.Item label="Organization" value="2" />
+										<Picker.Item label="Public Place" value="3" />
+									</Picker>
+								</View>
+								
 							</Form>
 						</Content>
 						<TouchableOpacity

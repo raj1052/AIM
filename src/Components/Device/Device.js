@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { AppHeader } from '../Common/AppHeader';
-import { Alert, ScrollView, StyleSheet, ActivityIndicator, View, TouchableOpacity, Picker, TextInput, Dimensions, Button } from 'react-native';
+import { Alert, ScrollView, StyleSheet, ActivityIndicator, View, TouchableOpacity, Picker, TextInput, Dimensions, Button, Vibration } from 'react-native';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -8,7 +8,7 @@ import { HTTP, setStorage, getStorage } from '../../services';
 import * as actionCreators from './actionCreators';
 import { Container, Header, Content, Card, CardItem, Text, Body, Form, Left, Title, Right } from 'native-base';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Camera from 'react-native-camera';
+import { RNCamera } from 'react-native-camera';
 
 var width;
 
@@ -21,13 +21,15 @@ class Device extends Component {
 			isLoading: true,
 			addDevice: false,
 			deviceId: 1,
+			deviceKey: "",
 			locationId: 1,
-			qrcode: '',
 			isCamera: false
 		}
 	}
 
 	componentWillMount() {
+		const DURATION = 10000
+		Vibration.vibrate(DURATION)
 		this.setState({ isLoading: true });
 		console.log("--------------------->");
 		this.props.actions.getData();
@@ -83,6 +85,11 @@ class Device extends Component {
 		this.props.navigation.navigate('Device');
 		await this.props.actions.getData();
 		this.setState({ addDevice: false });
+	}
+
+	
+	handleBarcode = (d) => {
+		this.setState({deviceKey : d.data, isCamera: false});
 	}
 
 	handleCamera = async () => {
@@ -161,6 +168,7 @@ class Device extends Component {
 											placeholder="Device Key"
 											style={styles.textInput}
 											maxLength={25}
+											value={this.state.deviceKey}
 											keyboardType="default"
 											onChangeText={(text) => this.setState({ deviceKey: text })}
 											style={{width: width*0.75}}
@@ -207,16 +215,7 @@ class Device extends Component {
 				} else {
 					return (
 						<View style={styles.container}>
-							<Camera
-								style={styles.preview}
-								onBarCodeRead={(d)=> {this.setState({device_key : d.data})}}
-								ref={cam => this.camera = cam}
-								aspect={Camera.constants.Aspect.fill}
-							>
-								<Text style={{
-									backgroundColor: 'white'
-								}}>{this.state.qrcode}</Text>
-							</Camera>
+							<RNCamera style={styles.preview} barCodeTypes={[RNCamera.Constants.BarCodeType.qr]} onBarCodeRead={(d)=> { this.handleBarcode(d) }} />
 						</View>
 					);
 				}

@@ -131,7 +131,8 @@ class Login extends Component {
               }}
             >
               <Image
-                source={require('../../assets/img/background-login.png')}
+                style={{width: 1080, height: 1366}}
+                source={require('../../assets/img/background-login.jpg')}
               />
             </View>
             <View style={{alignItems: 'center'}}>

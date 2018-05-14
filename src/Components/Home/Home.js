@@ -16,6 +16,9 @@ import { HTTP, setStorage, getStorage } from '../../services';
 import * as actionCreators from './actionCreators';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import { Defs, LinearGradient, Stop, Circle, G, Line, Rect } from 'react-native-svg'
+import { LineChart, Grid } from 'react-native-svg-charts'
+import * as shape from 'd3-shape'
 
 // import {
 // 	Container,
@@ -80,7 +83,8 @@ class Home extends Component {
 		super(props);
 		this.state = {
 			data: "test",
-			toggled: false
+			toggled: false,
+			tooltip: false
 		}
 	}
 
@@ -97,23 +101,91 @@ class Home extends Component {
 		Alert.alert("Welcome ", JSON.stringify(username));
 	}
 
-	handleChange = async(value, i) => {
+	handleChange = async (value, i) => {
 		let formData = {
 			"device_key": "4559d39e-35d7-11e8-9234-0123456789ab",
 			"device_id": 3,
 			"pin": i,
 			"status": value
 		}
-		if(i === 0){
-			this.setState({toggled1 : value})
+		if (i === 0) {
+			this.setState({ toggled1: value })
 		} else {
-			this.setState({toggled2 : value})
+			this.setState({ toggled2: value })
 		}
 		console.log("formData------------------------>", formData);
 		await this.props.actions.changeDeviceStatus(formData);
 	}
 
 	render() {
+
+		const data = [50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80, 50, 60, 80, 100]
+
+		const Gradient = () => (
+			<Defs key={'gradient'}>
+				<LinearGradient id={'gradient'} x1={'0'} y={'0%'} x2={'100%'} y2={'0%'}>
+					<Stop offset={'0%'} stopColor={'rgb(134, 65, 244)'} />
+					<Stop offset={'100%'} stopColor={'rgb(66, 194, 244)'} />
+				</LinearGradient>
+			</Defs>
+		)
+
+		const HorizontalLine = (({ y }) => (
+			<Line
+				key={'zero-axis'}
+				x1={'0%'}
+				x2={'100%'}
+				y1={y(50)}
+				y2={y(50)}
+				stroke={'grey'}
+				strokeDasharray={[4, 8]}
+				strokeWidth={2}
+			/>
+		))
+
+		const Tooltip = ({ x, y }) => (
+
+			<G
+				x={x(5) - (75 / 2)}
+				key={'tooltip'}
+				onPress={() => console.log('tooltip clicked', x, y)}
+			>
+				<G y={50}>
+					<Rect
+						height={40}
+						width={75}
+						stroke={'grey'}
+						fill={'white'}
+						ry={10}
+						rx={10}
+					/>
+					<Text
+						x={75 / 2}
+						dy={20}
+						alignmentBaseline={'middle'}
+						textAnchor={'middle'}
+						stroke={'rgb(134, 65, 244)'}
+					>
+						{`${data[5]}ºC`}
+					</Text>
+				</G>
+				<G x={75 / 2}>
+					<Line
+						y1={50 + 40}
+						y2={y(data[5])}
+						stroke={'grey'}
+						strokeWidth={2}
+					/>
+					<Circle
+						cy={y(data[5])}
+						r={6}
+						stroke={'rgb(134, 65, 244)'}
+						strokeWidth={2}
+						fill={'white'}
+					/>
+				</G>
+			</G>
+		)
 
 		client.on('messageReceived', (message) => {
 			console.log(message.payloadString);
@@ -127,6 +199,20 @@ class Home extends Component {
 				<Content padder>
 					<Text onPress={this.handleSubmit}>{this.state.data}</Text>
 					<ScrollView contentContainerStyle={{ marginBottom: 5 }}>
+						<LineChart
+							style={{ height: 200 }}
+							data={data}
+							contentInset={{ top: 20, bottom: 20 }}
+							svg={{
+								strokeWidth: 2,
+								stroke: 'url(#gradient)',
+							}}
+						>
+							<Grid />
+							<Gradient />
+							<HorizontalLine />
+							<Text style={styles.bodyText}>{`${data[5]}ºC`}</Text>
+						</LineChart>
 						<Card>
 							<CardItem>
 								<Left>
@@ -136,7 +222,7 @@ class Home extends Component {
 											<Text style={styles.bodyText}>Fan:</Text>
 										</View>
 										<Switch
-											onValueChange={(value) => this.handleChange(value, i = 1 )}
+											onValueChange={(value) => this.handleChange(value, i = 1)}
 											value={this.state.toggled1}
 										/>
 									</Body>
