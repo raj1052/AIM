@@ -28,8 +28,6 @@ class Device extends Component {
 	}
 
 	componentWillMount() {
-		const DURATION = 10000
-		Vibration.vibrate(DURATION)
 		this.setState({ isLoading: true });
 		console.log("--------------------->");
 		this.props.actions.getData();
@@ -90,6 +88,8 @@ class Device extends Component {
 	
 	handleBarcode = (d) => {
 		this.setState({deviceKey : d.data, isCamera: false});
+		const DURATION = 1000
+		Vibration.vibrate(DURATION)
 	}
 
 	handleCamera = async () => {

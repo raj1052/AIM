@@ -39,9 +39,20 @@ import * as shape from 'd3-shape'
 import { Client, Message } from 'react-native-paho-mqtt';
 
 var testdata;
+
+const myStorage = {
+	setItem: (key, item) => {
+		myStorage[key] = item;
+	},
+	getItem: (key) => myStorage[key],
+	removeItem: (key) => {
+		delete myStorage[key];
+	},
+};
+
 // Create a client instance
 // const client = new Client({ uri: 'ws://14.140.154.146:4000/ws', clientId: '123456789', storage: setStorage });
-const client = new Client({ uri: 'ws://192.168.0.3:3000/ws', clientId: '98449a6e-34cc-11e8-9234-0123456789ab', storage: setStorage });
+const client = new Client({ uri: 'ws://192.168.0.3:3000/ws', clientId: '98449a6e-34cc-11e8-9234-0123456789ab', storage: myStorage });
 // const client = new Client({ uri: 'ws://test.mosquitto.org/ws', clientId: '98449a6e-34cc-11e8-9234-0123456789ab', storage: setStorage });
 
 // set event handlers
@@ -60,9 +71,8 @@ client.connect()
 		return client.subscribe('98449a6e-34cc-11e8-9234-0123456789ab');
 	})
 	.then(() => {
-		const message = new Message('Hello');
 		message.destinationName = '98449a6e-34cc-11e8-9234-0123456789ab';
-		client.send(message);
+		// client.send(message);
 	})
 	.catch((responseObject) => {
 		if (responseObject.errorCode !== 0) {
@@ -82,7 +92,7 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: "test",
+			data: [50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80, 50, 60, 80, 100],
 			toggled: false,
 			tooltip: false
 		}
@@ -118,9 +128,8 @@ class Home extends Component {
 	}
 
 	render() {
-
-		const data = [50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80, 50, 60, 80, 100]
-
+		var data = this.state.data;
+		console.log("data------------------------->", data);
 		const Gradient = () => (
 			<Defs key={'gradient'}>
 				<LinearGradient id={'gradient'} x1={'0'} y={'0%'} x2={'100%'} y2={'0%'}>
@@ -189,7 +198,11 @@ class Home extends Component {
 
 		client.on('messageReceived', (message) => {
 			console.log(message.payloadString);
-			this.setState({ data: message.payloadString })
+			// let data = JSON.parse(message.payloadString);
+			let data = JSON.parse(message.payloadString);
+			console.log("daat=========>", data);
+			let tempdata = this.state.data.slice(this.state.data.length - 3)
+			this.setState({ data: tempdata.concat(data) })
 		});
 
 		console.log("state------------------->", this.state);
@@ -199,20 +212,24 @@ class Home extends Component {
 				<Content padder>
 					<Text onPress={this.handleSubmit}>{this.state.data}</Text>
 					<ScrollView contentContainerStyle={{ marginBottom: 5 }}>
-						<LineChart
-							style={{ height: 200 }}
-							data={data}
-							contentInset={{ top: 20, bottom: 20 }}
-							svg={{
-								strokeWidth: 2,
-								stroke: 'url(#gradient)',
-							}}
-						>
-							<Grid />
-							<Gradient />
-							<HorizontalLine />
-							<Text style={styles.bodyText}>{`${data[5]}ºC`}</Text>
-						</LineChart>
+						<Card>
+							<LineChart
+								style={{ height: 200 }}
+								data={data}
+								contentInset={{ top: 20, bottom: 20 }}
+								svg={{
+									strokeWidth: 2,
+									stroke: 'url(#gradient)'
+								}}
+							>
+								<Grid />
+								<Gradient />
+								<HorizontalLine />
+								<Text style={styles.bodyText}>{`${data[5]}ºC`}</Text>
+							</LineChart>
+
+						</Card>
+
 						<Card>
 							<CardItem>
 								<Left>
