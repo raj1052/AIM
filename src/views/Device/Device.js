@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { AppHeader } from '../../components/AppHeader';
-import { Alert, ScrollView, StyleSheet, ActivityIndicator, View, TouchableOpacity, Picker, TextInput, Dimensions, Button, Vibration } from 'react-native';
+import { Alert, ScrollView, StyleSheet, ActivityIndicator, View, TouchableOpacity, Picker, TextInput, Dimensions, Button, Vibration, DatePickerAndroid } from 'react-native';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -22,7 +22,9 @@ class Device extends Component {
 			addDevice: false,
 			deviceId: 1,
 			deviceKey: "",
+			secretKey: "",
 			locationId: 1,
+			date: new Date(),
 			isCamera: false
 		}
 	}
@@ -33,9 +35,6 @@ class Device extends Component {
 		this.props.actions.getData();
 		this.props.actions.getLocations();
 		this.setState({ isLoading: false });
-		// this.setState({
-		//     data : []
-		// })
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -65,7 +64,7 @@ class Device extends Component {
 	};
 
 	handleAddDevice = async () => {
-		this.setState({ isLoading: true });		
+		this.setState({ isLoading: true });
 		this.setState({ addDevice: true });
 		this.setState({ isLoading: false });
 	}
@@ -85,9 +84,10 @@ class Device extends Component {
 		this.setState({ addDevice: false });
 	}
 
-	
+
 	handleBarcode = (d) => {
-		this.setState({deviceKey : d.data, isCamera: false});
+		data = JSON.parse(d.data);
+		this.setState({ deviceKey: data.devicekey, secretKey: data.secretkey, isCamera: false });
 		const DURATION = 1000
 		Vibration.vibrate(DURATION)
 	}
@@ -96,8 +96,21 @@ class Device extends Component {
 		this.setState({ isCamera: true });
 	}
 
+	openAndroidDatePicker = async () => {
+		try {
+			const { action, year, month, day } = await DatePickerAndroid.open({
+				date: new Date()
+			});
+			date = year.toString() + "/" + month.toString() + "/" + day.toString();
+			this.setState({ date: date })
+		} catch ({ code, message }) {
+			console.warn('Cannot open date picker', message);
+		}
+	}
+
 	render() {
 		console.log("state--------------------------->", this.state);
+		const { navigate } = this.props.navigation;
 		width = Dimensions.get('window').width;
 		if (!this.state.isLoading) {
 			if (!this.state.addDevice) {
@@ -108,26 +121,28 @@ class Device extends Component {
 							<ScrollView contentContainerStyle={{ marginBottom: 5 }}>
 								{this.state.data.data !== undefined && this.state.data.data.map((d, i) => {
 									return (
-										<Content key={i}>
-											<Card>
-												<CardItem header>
-													<Text>{d.device_name}</Text>
-												</CardItem>
-												<CardItem>
-													<Body>
-														<Text>
-															{d.device_version}
-														</Text>
-														<Text>
-															{d.manufactured_date}
-														</Text>
-													</Body>
-												</CardItem>
-												<CardItem footer>
-													<Text>{d.device_key}</Text>
-												</CardItem>
-											</Card>
-										</Content>
+										<TouchableOpacity onPress={(d) => {navigate('Home', { name: d })}}>
+											<Content key={i}>
+												<Card>
+													<CardItem header>
+														<Text>{d.device_name}</Text>
+													</CardItem>
+													<CardItem>
+														<Body>
+															<Text>
+																{d.device_version}
+															</Text>
+															<Text>
+																{d.manufactured_date}
+															</Text>
+														</Body>
+													</CardItem>
+													<CardItem footer>
+														<Text>{d.device_key}</Text>
+													</CardItem>
+												</Card>
+											</Content>
+										</TouchableOpacity>
 									);
 								})}
 							</ScrollView>
@@ -150,7 +165,7 @@ class Device extends Component {
 							<Content padder>
 								<Form>
 									<View style={{ flex: 1, flexDirection: 'row' }}>
-										<Icon name="developer-board" style={{marginTop: 12}} size={25} color="#4486F7" />
+										<Icon name="developer-board" style={{ marginTop: 12 }} size={25} color="#4486F7" />
 										<Text style={styles.bodyText} > Device Name </Text>
 										<Picker
 											style={styles.picker}
@@ -164,42 +179,62 @@ class Device extends Component {
 									</View>
 									<View style={{ flex: 1, flexDirection: 'row' }}>
 										<Left>
-										<TextInput
-											placeholder="Device Key"
-											style={styles.textInput}
-											maxLength={25}
-											value={this.state.deviceKey}
-											keyboardType="default"
-											onChangeText={(text) => this.setState({ deviceKey: text })}
-											style={{width: width*0.75}}
-										/>
+											<TextInput
+												placeholder="Device Key"
+												style={styles.dateInput}
+												maxLength={70}
+												value={this.state.deviceKey}
+												keyboardType="default"
+												onChangeText={(text) => this.setState({ deviceKey: text })}
+												style={{ width: width * 0.75 }}
+											/>
 										</Left>
 										<Right>
-										<Button onPress={this.handleCamera} color="#841584" title="camera" accessibilityLabel="Learn more about this purple button">
-											<Icon name="developer-board" size={30} color="#4486F7" />
-										</Button>
+											<Button onPress={this.handleCamera} color="#841584" title="camera" accessibilityLabel="Learn more about this purple button">
+												<Icon name="developer-board" size={30} color="#4486F7" />
+											</Button>
 										</Right>
 									</View>
+
 									<TextInput
 										placeholder="Secreate Key"
 										style={styles.textInput}
-										maxLength={25}
+										value={this.state.secretKey}
+										maxLength={70}
 										keyboardType="default"
 										onChangeText={(text) => this.setState({ secretKey: text })}
 									/>
-									<View style={{ flex: 1, flexDirection: 'row' }}>									
-									<Text style={styles.bodyText} > Device Location Name </Text>
-									<Picker
-										style={styles.picker}
-										selectedValue={this.state.deviceId}
-										mode="dropdown"										
-										onValueChange={(value) => this.setState({ locationId: value })}>
-										{
-											this.state.locations.data.map((d, i) => {
-												return <Picker.Item label={d.location_name} key={i} value={d.device_location_id} />
-											})
-										}
-									</Picker>
+									<View style={{ flex: 1, flexDirection: 'row' }}>
+										<Text style={styles.bodyText} >Device Date</Text>
+										<TextInput
+											placeholder=""
+											style={styles.textInput}
+											maxLength={70}
+											editable={false}
+											value={this.state.date}
+											keyboardType="default"
+											onChangeText={(d) => this.openAndroidDatePicker()}
+										/>
+										<TouchableOpacity
+											style={{ marginLeft: 25 }}
+											onPress={this.openAndroidDatePicker}
+										>
+											<Icon name="developer-board" size={30} color="#4486F7" />
+										</TouchableOpacity>
+									</View>
+									<View style={{ flex: 1, flexDirection: 'row' }}>
+										<Text style={styles.bodyText} >Device Location Name</Text>
+										<Picker
+											style={styles.picker}
+											selectedValue={this.state.deviceId}
+											mode="dropdown"
+											onValueChange={(value) => this.setState({ locationId: value })}>
+											{
+												this.state.locations.data.map((d, i) => {
+													return <Picker.Item label={d.location_name} key={i} value={d.device_location_id} />
+												})
+											}
+										</Picker>
 									</View>
 								</Form>
 							</Content>
@@ -215,7 +250,7 @@ class Device extends Component {
 				} else {
 					return (
 						<View style={styles.container}>
-							<RNCamera style={styles.preview} barCodeTypes={[RNCamera.Constants.BarCodeType.qr]} onBarCodeRead={(d)=> { this.handleBarcode(d) }} />
+							<RNCamera style={styles.preview} barCodeTypes={[RNCamera.Constants.BarCodeType.qr]} onBarCodeRead={(d) => { this.handleBarcode(d) }} />
 						</View>
 					);
 				}
@@ -256,11 +291,16 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		marginBottom: 7
 	},
+	dateInput: {
+		fontSize: 18,
+		marginBottom: 7,
+		width: 150
+	},
 	bodyText: {
 		fontSize: 18,
 		color: 'grey',
 		marginTop: 10,
-		marginLeft: 20
+		marginLeft: 10
 	},
 	preview: {
 		flex: 1,

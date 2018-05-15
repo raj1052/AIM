@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/res/merged/release/drawable-v23/abc_control_background_material.xml",
-        "source": "/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-v23/abc_control_background_material.xml"
-    },
-    {
         "merged": "/home/nikunj/Desktop/AIM/aim-mobile/android/D:\\Raja\\AIM\\aim-mobile\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-v23\\abc_control_background_material.xml",
         "source": "/home/nikunj/Desktop/AIM/aim-mobile/android/D:\\Raja\\AIM\\aim-mobile\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-v23\\abc_control_background_material.xml"
+    },
+    {
+        "merged": "/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/res/merged/release/drawable-v23/abc_control_background_material.xml",
+        "source": "/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-v23/abc_control_background_material.xml"
     }
 ]

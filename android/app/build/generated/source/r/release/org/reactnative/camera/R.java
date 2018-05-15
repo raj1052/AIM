@@ -1161,6 +1161,7 @@ public final class R {
 		public static final int Widget_CameraView = 0x7f09014e;
 		public static final int Widget_Compat_NotificationActionContainer = 0x7f09007c;
 		public static final int Widget_Compat_NotificationActionText = 0x7f09007d;
+		public static final int redboxButton = 0x7f09014f;
 	}
 	public static final class styleable {
 		public static final int[] ActionBar = { 0x7f010001, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d, 0x7f01000e, 0x7f01000f, 0x7f010010, 0x7f010011, 0x7f010012, 0x7f010013, 0x7f010014, 0x7f010015, 0x7f010016, 0x7f010017, 0x7f010018, 0x7f010019, 0x7f01001a, 0x7f01001b, 0x7f0100a9 };

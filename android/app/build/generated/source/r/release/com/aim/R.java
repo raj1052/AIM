@@ -2668,6 +2668,7 @@ containing a value of this type.
         public static final int Widget_CameraView=0x7f09014e;
         public static final int Widget_Compat_NotificationActionContainer=0x7f09007c;
         public static final int Widget_Compat_NotificationActionText=0x7f09007d;
+        public static final int redboxButton=0x7f09014f;
     }
     public static final class xml {
         public static final int preferences=0x7f060000;
