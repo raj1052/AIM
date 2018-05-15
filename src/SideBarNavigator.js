@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { SideBar, Home, Logout, Device, Location } from './Components';
+import { SideBar } from './components';
+import { Home, Logout, Device, Location } from './views';
 import { DrawerNavigator } from "react-navigation";
 
 const Drawer = DrawerNavigator ({

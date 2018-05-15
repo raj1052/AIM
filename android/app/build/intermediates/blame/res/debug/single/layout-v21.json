@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "/home/nikunj/Desktop/AIM/aim-mobile/android/D:\\Raja\\AIM\\aim-mobile\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "/home/nikunj/Desktop/AIM/aim-mobile/android/D:\\Raja\\AIM\\aim-mobile\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\26.1.0\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/nikunj/Desktop/AIM/aim-mobile/android/D:\\Raja\\AIM\\aim-mobile\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "/home/nikunj/Desktop/AIM/aim-mobile/android/D:\\Raja\\AIM\\aim-mobile\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\26.1.0\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.android.support/support-compat/26.1.0/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.android.support/support-compat/26.1.0/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.android.support/support-compat/26.1.0/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/home/nikunj/Desktop/AIM/aim-mobile/android/D:\\Raja\\AIM\\aim-mobile\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "/home/nikunj/Desktop/AIM/aim-mobile/android/D:\\Raja\\AIM\\aim-mobile\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\26.1.0\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.android.support/support-compat/26.1.0/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/nikunj/Desktop/AIM/aim-mobile/android/D:\\Raja\\AIM\\aim-mobile\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "/home/nikunj/Desktop/AIM/aim-mobile/android/D:\\Raja\\AIM\\aim-mobile\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\support-compat\\26.1.0\\res\\layout-v21\\notification_template_custom_big.xml"
+    }
+]

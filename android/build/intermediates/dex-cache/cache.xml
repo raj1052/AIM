@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/12.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="cc95ad466da44800955b79689023485ea39924a3">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-vision-12.0.1_e41f024687b4207a8f5d898b9e63d75a62407312.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/12.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="22569eca3029ab00583c332a2be220cdbf091b35">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-12.0.1_bc07e193ac555eed77e3474c52f3b8d2fe274d68.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/12.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="a38a8974c8d066800237d22a86df2e88cb9e065c">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-12.0.1_f86d8f56567c23b4474296fd41c138ea586759ce.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/27.1.0/39ded76b5e1ce1c5b2688e1d25cdc20ecee32007/support-annotations-27.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="39ded76b5e1ce1c5b2688e1d25cdc20ecee32007">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/support-annotations-27.1.0_898840869032ad0b29063ac86d544948601753d9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.55.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="e31331bdf6b5952badadbfc171f04b95c55d3b16">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.55.4_bf1b836b956eb5fb1ef01606a9bd97cd9a52c258.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_2445381dc2b8288054b516762b09665d864d473a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-1.3.0_f94c2b040557ff77d909fda02b4b03eb4838bb0f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_496fe999437cedcaee9cfd679ecd4f4345752235.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/aim/react-native-vector-icons/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="001d8a96417bf5d83cb2759a3bb0d635101dda4c">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/aim-react-native-vector-icons-unspecified_244088556a809839a8c0bb7b5dc23f6e675020d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/12.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ed8395f343c428cd55c60499f04323083f4ef0db">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-12.0.1_7823e731489eec3bfcef9d63edab2a05ad7d2b1f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_89cf3e116ff63ec78c2f45b3bd79ef66b2e75fb6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.android.support/support-compat/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2442771a5590dd4eb4bce00c2e9dca9e22e4c963">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-26.1.0_c794d543ab664ac9bf85c740baeee4a4db9856cb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/aim/react-native-svg/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="65ff0d59b021d46a19b6029cd1de8b0b383bca7b">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/aim-react-native-svg-unspecified_e3ed507fe94a52425f896920a127d2bf18e7c875.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-1.3.0_1e4158fc1539174e0cc79641aa2112291749db00.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/android.arch.lifecycle/runtime/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="b62fdc4cfef174c1e456014195c83fa7de7dc041">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/android.arch.lifecycle-runtime-1.0.0_cc437fcaa63ad8f44df935480acfdf68461fb788.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision-common/12.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="1fddd828aa2365a453562d62b07da4a2d94a24ad">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-vision-common-12.0.1_090984ad7fe8c847a860eb409a1afee63b30c6d4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/.gradle/caches/modules-2/files-2.1/com.adobe.xmp/xmpcore/5.1.2/55615fa2582424e38705487d1d3969af8554f637/xmpcore-5.1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="55615fa2582424e38705487d1d3969af8554f637">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/xmpcore-5.1.2_a240bfb495be7a6342cdd4e4bac502fd4e123490.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.55.4/jars/libs/infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_8e78a5662b6908c54ed42cc594028de42c8d5119.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.android.support/support-fragment/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="7efef32744ca4a436492d5cf28c08698cc2af256">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-26.1.0_44508c0053e93e3509bbbce5677efc1639abc821.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/okhttp-3.6.0_3d2dd5dc35371b94f79488b3b73950c1378ec3a0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_7a7104a041eb404936eb395e5bbe8f484772b13e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_beb017faf1e6ab48989b04b46fb3fc6ddd27ac7c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.android.support/exifinterface/27.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="0d6df4057d1620a785f5bd2e69dd0d7866f3613c">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.android.support-exifinterface-27.1.0_ac26f63c9c97fe7f1fd5bbc9a636bbafe763ded0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.0.0/a2d487452376193fc8c103dd2b9bd5f2b1b44563/common-1.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="a2d487452376193fc8c103dd2b9bd5f2b1b44563">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/common-1.0.0_bc55f31f1b1e362958404774a67cea679b03e31c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f97cf85b0fe70d37a705111dafa6b1b418ea1650">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-26.1.0_8eebff57e8d2e8e003467e7aed78660b5a570b8a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.3.0_b358bba5878e95dcec8a68a5200496779d71d411.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.0.0/e414a4cb28434e25c4f6aa71426eb20cf4874ae9/common-1.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="e414a4cb28434e25c4f6aa71426eb20cf4874ae9">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/common-1.0.0_611237cb2ef8ab0968d35c01de99be7723ee82d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="233f60a165ae622c8b36731502ebbda0f65e1930">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-26.1.0_85414cfcb20de7695268f6b29622ab70fc1de539.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.6.0_4ff512f9bb361e484ead5d6f0c1fd3079ded93ae.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_8dadc8c226d4d3b83e9dac77f93263a68af6a78a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/.gradle/caches/modules-2/files-2.1/com.drewnoakes/metadata-extractor/2.9.1/53fdf22be10c9d426ec63431c7342895bc642261/metadata-extractor-2.9.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="53fdf22be10c9d426ec63431c7342895bc642261">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/metadata-extractor-2.9.1_b27cbf1d2753a2fe09dfba671c00a80ac965abd2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/okio-1.13.0_ece1185bf2d8a3d69bba42e4fcb6915265160b3a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_a5e737369dca5a17dcd5cc90868e777d228c4e74.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.1/2287494d4f5f9f3a9a2bb6980e3f32053721b315/core-3.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/core-3.2.1_9d6fbbb7ff88fd505b6cbcd6e55394fa829f5cde.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.github.react-native-community/cameraview/d529251d24c0a367a28eea28f0eac2269d12f772/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="e64d3bd4020c2600a42923c3b493bbb2e81f1211">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.github.react-native-community-cameraview-d529251d24c0a367a28eea28f0eac2269d12f772_2b1c3d271651ff5e48aa1ad818ffdf908f15c056.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.3.0_e1c23adb7f2093af4aaf514effd869615251acaa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-26.1.0_54ae3bf26f1e3f359cec24b55062ad133ec456c7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="508f50705b4fde51a16259f29c854201a3044516">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-26.1.0_4df30ade530044dee7c4f53411321bdee92589df.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.3.0_815373ba6d103057a49b0b3f392858b4159db14b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-1.3.0_b2d31b6de0df92d08daf42a1a2668d18c58bfc27.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/exploded-aar/aim/react-native-camera/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="cf21272f58aedaf897c13ce880fb51da3aceae5c">
+        <dex dex="/home/nikunj/Desktop/AIM/aim-mobile/android/app/build/intermediates/pre-dexed/debug/aim-react-native-camera-unspecified_818bef99c6035347f1a6e8ac00cd4929825e9d45.jar" />
+    </item>
+
+</items>

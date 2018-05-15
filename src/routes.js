@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import {Login,Home,SideBar} from './Components';
+import { SideBar } from './components';
+import { Login, Home } from './views';
 import { StackNavigator } from "react-navigation";
 import Drawer from "./SideBarNavigator";
 
