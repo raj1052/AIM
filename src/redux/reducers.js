@@ -8,7 +8,8 @@ import {
   LoginReducer,
   DeviceReducer,
   LocationReducer,
-  HomeReducer
+  HomeReducer,
+  DeviceDetailsReducer
 } from '../views/';
 
 import {
@@ -20,5 +21,6 @@ export default combineReducers({
   DeviceReducer,
   LocationReducer,
   HomeReducer,
+  DeviceDetailsReducer,
   form: reduxFormReducer,
 });

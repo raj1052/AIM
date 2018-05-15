@@ -121,8 +121,8 @@ class Device extends Component {
 							<ScrollView contentContainerStyle={{ marginBottom: 5 }}>
 								{this.state.data.data !== undefined && this.state.data.data.map((d, i) => {
 									return (
-										<TouchableOpacity onPress={(d) => {navigate('Home', { name: d })}}>
-											<Content key={i}>
+										<Content key={i}>
+											<TouchableOpacity onPress={() => { navigate('DeviceDetails', { data: d }) }}>
 												<Card>
 													<CardItem header>
 														<Text>{d.device_name}</Text>
@@ -141,8 +141,8 @@ class Device extends Component {
 														<Text>{d.device_key}</Text>
 													</CardItem>
 												</Card>
-											</Content>
-										</TouchableOpacity>
+											</TouchableOpacity>
+										</Content>
 									);
 								})}
 							</ScrollView>
