@@ -1,4 +1,4 @@
-import { asyncActionNames, buildAsyncActions } from '../Common/GlobalActionCreators';
+import { asyncActionNames, buildAsyncActions } from '../../components/GlobalActionCreators';
 import { HTTP, setStorage, getStorage } from '../../services';
 import { Alert} from 'react-native'
 

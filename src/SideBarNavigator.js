@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 import { SideBar } from './components';
 import { Home, Logout, Device, Location } from './views';
 import { DrawerNavigator } from "react-navigation";

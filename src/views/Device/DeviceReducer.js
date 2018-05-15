@@ -1,4 +1,4 @@
-import { asyncActionNames } from '../Common/GlobalActionCreators';
+import { asyncActionNames } from '../../components/GlobalActionCreators';
 const actionNames = asyncActionNames('DEVICE');
 
 const actionNamesLocations = asyncActionNames('LOCATIONS');

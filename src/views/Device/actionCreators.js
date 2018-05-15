@@ -1,5 +1,5 @@
 import { HTTP } from '../../services';
-import { asyncActionNames, buildAsyncActions } from '../Common/GlobalActionCreators';
+import { asyncActionNames, buildAsyncActions } from '../../components/GlobalActionCreators';
 import { Alert } from 'react-native'
 import * as AppActions from '../../redux/AppActions';
 

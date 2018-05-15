@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // import { View } from "react-native";
 // import { Container,Text,Content, Button } from "native-base";
-import styles from "../Common/styles";
-import { AppHeader } from '../Common/AppHeader'
+import styles from "../../components/styles";
+import { AppHeader } from '../../components/AppHeader'
 // import { Alert } from 'react-native'
 
 import PropTypes from 'prop-types';

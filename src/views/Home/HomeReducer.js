@@ -1,4 +1,4 @@
-import { asyncActionNames } from '../Common/GlobalActionCreators';
+import { asyncActionNames } from '../../components/GlobalActionCreators';
 const actionNames = asyncActionNames('HOME');
 
 const INITIAL_STATE = { errors: null, authenticated: false, admin_privileges: false, data: null, editFormData:null, progress: false };

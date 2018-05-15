@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { AppHeader } from '../Common/AppHeader';
+import { AppHeader } from '../../components/AppHeader';
 import { Alert, ScrollView, StyleSheet, ActivityIndicator, View, TouchableOpacity, Picker, TextInput, Dimensions, Button, Vibration } from 'react-native';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';

@@ -9,7 +9,7 @@ import {
   DeviceReducer,
   LocationReducer,
   HomeReducer
-} from '../Components/';
+} from '../views/';
 
 import {
   AppReducer

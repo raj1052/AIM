@@ -1,4 +1,4 @@
-import { asyncActionNames } from '../Common/GlobalActionCreators';
+import { asyncActionNames } from '../../components/GlobalActionCreators';
 const actionNames = asyncActionNames('LOGIN');
 
 const INITIAL_STATE = { errors: null, authenticated: false, admin_privileges: false, profile: null, progress: false };

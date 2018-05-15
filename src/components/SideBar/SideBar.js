@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-
 import {Container,Content,Left,Right,Text,ListItem,List, Badge} from "native-base";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import styles from "../Common/styles";
+import styles from "../styles";
 const datas = [
 	{
 		name : "Dashboard",
