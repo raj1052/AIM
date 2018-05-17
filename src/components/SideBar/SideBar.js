@@ -21,7 +21,7 @@ const datas = [
 		icon: "home-automation"
 	},{
 		name : "Usage",
-		route :"Home",
+		route :"Usage",
 		color: "#EF9F4E",
 		icon: "chart-bubble"
 	},{
