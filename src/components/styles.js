@@ -8,13 +8,13 @@ export default styles = StyleSheet.create({
     flexDirection: 'column'
   },
   horizontal: {
-		flexDirection: 'row',
-		margin: 'auto'
+    flexDirection: 'row',
+    margin: 'auto'    
   },
   vertical: {
-    flex: 1,
+    flex:1,
     flexDirection: 'column',
-    margin: 'auto',
+    margin: 'auto'
   },
   sidebar: {
     flex: 1,
@@ -34,33 +34,60 @@ export default styles = StyleSheet.create({
     fontSize: 18,
     marginTop: height * 0.01,
     alignItems: 'center',
-		fontWeight: 'bold',
-		color: 'white'
+    fontWeight: 'bold',
+    color: 'white'
   },
   labelText: {
-		fontSize: 16,
-		fontWeight: 'bold'
-	},
+    fontSize: 16,
+    fontWeight: 'bold'
+  },
+  shortTextInput: {
+    fontSize: 18,
+    width: width / 4
+  },
   halfTextInput: {
-		fontSize: 18,
+    fontSize: 18,
     width: width / 2
-	},
+  },
+  fullTextInput: {
+    fontSize: 18,
+    width: width * 0.8
+  },
   button: {
-		alignItems: 'center',
+    alignItems: 'center',
     backgroundColor: '#03618D',
     height: height * 0.05
   },
   bodyText: {
-		fontSize: 18,
-		color: 'grey'
+    fontSize: 18,
+    color: 'grey'
   },
   loding: {
-		flex: 1,
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around'
   },
   smallPicker: {
     width: width / 2
+  },
+  picker: {
+    marginLeft: 25,
+    width: 250
+  },
+  camerabutton: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end'
+  },
+  preview: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
+  dateInput: {
+    fontSize: 18,
+    marginBottom: 7,
+    width: 150
   }
 });

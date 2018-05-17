@@ -80,7 +80,7 @@ export function insertDevice(values) {
                     Alert.alert(result.data);
                     // else
                     //     Alert(result.data.error.message);
-                    resolve(true);
+                    resolve();
                 }).catch((error) => {
                     Alert(error.response.data.message);
                     reject();

@@ -79,7 +79,7 @@ class Usage extends Component {
 							<ScrollView>
 								{this.state.data.data !== undefined && this.state.data.data.controllerData.map((d, i) => {
 									return (
-										<Card>
+										<Card key={i} >
 											<CardItem header bordered>
 												<Text>{d.location_name}</Text>
 											</CardItem>

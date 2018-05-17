@@ -8,9 +8,7 @@ import { HTTP, setStorage, getStorage } from '../../services';
 import * as actionCreators from './actionCreators';
 import { Container, Header, Content, Card, CardItem, Text, Body, Form, Left, Title, Right } from 'native-base';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { RNCamera } from 'react-native-camera';
-
-var width;
+import { container, bodyText, button, horizontal, vertical, labelText, loding, smallPicker, fullTextInput } from '../../components/styles';
 
 class DeviceDetails extends Component {
 	constructor(props) {
@@ -98,70 +96,70 @@ class DeviceDetails extends Component {
 	render() {
 		console.log("state--------------------------->", this.state);
 		const { navigate } = this.props.navigation;
-		width = Dimensions.get('window').width;
 		if (!this.state.isLoading) {
 			if (!this.state.addDevice) {
 				return (
-					<Container style={styles.container}>
-						<AppHeader name="Devices Details" />
-						<Content style={{ marginBottom: 0}}>
-							<Card style={{ backgroundColor: '#0075C7' }}>
-								<CardItem header style={{ backgroundColor: '#0075C7' }}>
-									<Text style={{ color: '#fff' }}>{this.state.deviceinfo.device_name}</Text>
-								</CardItem>
-								<CardItem style={{ backgroundColor: '#0075C7' }}>
-									<Body style={{ backgroundColor: '#0075C7' }}>
-										<Text style={{ color: '#fff' }}>
-											{this.state.deviceinfo.device_version}
-										</Text>
-										<Text style={{ color: '#fff' }}>
-											{this.state.deviceinfo.manufactured_date}
-										</Text>
-									</Body>
-								</CardItem>
-								<CardItem footer style={{ backgroundColor: '#0075C7' }}>
-									<Text style={{ color: '#fff' }}>{this.state.deviceinfo.device_key}</Text>
-								</CardItem>
-							</Card>
-
-							<Card style={{ backgroundColor: '#CDD1DF', marginBottom: 0 }}>
-								<CardItem header style={{ backgroundColor: '#CDD1DF' }}>
-									<Text style={{ color: '#333' }}>Controllers</Text>
-								</CardItem>
-							</Card>
-							<Card style={{ backgroundColor: '#CDD1DF', marginBottom: 0 }}>
-								<CardItem header style={{ backgroundColor: '#CDD1DF' }}>
-									<Text style={{ color: '#333' }}>Controllers</Text>
-								</CardItem>
-							</Card>
-						</Content>
+					<Container>
+						<AppHeader name="Devices Details" navigation={this.props} back={true} />
+						<View style={styles.horizontal}>
+							<Content>
+								<Card>
+									<CardItem header bordered>
+										<Text style={styles.labelText}>{this.state.deviceinfo.device_name}</Text>
+									</CardItem>
+									<CardItem >
+										<Body style={styles.horizontal}>
+											<Text style={styles.labelText}>Device Version :   </Text>
+											<Text>{this.state.deviceinfo.device_version}</Text>
+										</Body>
+									</CardItem >
+									<CardItem >
+										<Text style={styles.labelText}> Date :   </Text>
+										<Text>{this.state.deviceinfo.manufactured_date}</Text>
+									</CardItem>
+									<CardItem >
+										<Text style={styles.labelText}> Device Key :   </Text>
+										<Text >{this.state.deviceinfo.device_key}</Text>
+									</CardItem>
+								</Card>
+								<Card style={{ backgroundColor: '#CDD1DF', marginBottom: 0 }}>
+									<CardItem header style={{ backgroundColor: '#CDD1DF' }}>
+										<Text style={styles.labelText}>Controllers</Text>
+									</CardItem>
+								</Card>
+							</Content>
+						</View>
 						<Content padder>
-							<ScrollView contentContainerStyle={{ marginTop: 0, marginBottom: 5 }}>
-								{this.state.data.data !== undefined && this.state.data.data.map((d, i) => {
-									return (
-										<Content key={i}>
-											<Card>
-												<CardItem>
-													<Left>
-														{d.device_controller_type_id === 1 ? <Icon name="fan" size={30} color="#4486F7" /> :
-															<Icon name="lightbulb-on" size={30} color="#4486F7" />
-														}
-														<Body>
-															<View style={{ flex: 1, flexDirection: 'row' }}>
-																<Text style={styles.bodyText}>{d.device_controller_name}</Text>
-															</View>
-															<Switch
-																onValueChange={() => this.handleChange(d)}
-																value={d.status === 0 ? false : true}
-															/>
-														</Body>
-													</Left>
-												</CardItem>
-											</Card>
-										</Content>
-									);
-								})}
-							</ScrollView>
+							<View>
+								<ScrollView>
+									{this.state.data.data !== undefined && this.state.data.data.map((d, i) => {
+										return (
+											<Content key={i}>
+												<Card>
+													<View style={styles.horizontal}>
+														<CardItem>
+															{d.device_controller_type_id === 1 ? <Icon name="fan" size={30} color="#4486F7" /> :
+																<Icon name="lightbulb-on" size={30} color="#4486F7" />
+															}
+														</CardItem>
+														<CardItem>
+															<Text style={styles.bodyText}>{d.device_controller_name}</Text>
+														</CardItem>
+														<Right>
+															<CardItem>
+																<Switch
+																	onValueChange={() => this.handleChange(d)}
+																	value={d.status === 0 ? false : true}
+																/>
+															</CardItem>
+														</Right>
+													</View>
+												</Card>
+											</Content>
+										);
+									})}
+								</ScrollView>
+							</View>
 						</Content>
 						<TouchableOpacity
 							style={styles.button}
@@ -174,62 +172,57 @@ class DeviceDetails extends Component {
 				);
 			} else {
 				return (
-					<Container style={styles.container}>
-						<AppHeader back="Device" name="Add New Device" />
+					<Container >
+						<AppHeader name="Add New Device" />
 						<Content padder>
 							<Card>
+								<CardItem header bordered>
+									<Text style={styles.labelText} >Add Controller Name</Text>
+								</CardItem>
 								<CardItem>
-									<Left>
-										<Body>
-											<View style={{ flex: 1, flexDirection: 'row' }}>
-												<Text style={styles.bodyText} >Device Controller Name</Text>
-												<TextInput
-													style={styles.bodyText}
-													maxLength={10}
-													value={this.state.device_controller_name}
-													keyboardType="default"
-													onChangeText={(text) => this.setState({ device_controller_name: text })}
-													style={{ width: 150 }}
-												/>
-											</View>
-											<View style={{ flex: 1, flexDirection: 'row' }}>
-												<Text style={styles.bodyText} >Device Controller Type</Text>
-												<Picker
-													style={styles.picker}
-													selectedValue={this.state.device_controller_type_id}
-													mode="dropdown"
-													onValueChange={(itemValue, itemIndex) => this.setState({ device_controller_type_id: itemValue })}>
-													<Picker.Item label="Fan" value="1" />
-													<Picker.Item label="Light" value="2" />
-												</Picker>
-											</View>
-											<View style={{ flex: 1, flexDirection: 'column' }}>
-												<View style={{ flex: 1, flexDirection: 'row' }}>
-													<Text style={styles.bodyText} >Pin  </Text>
-													<TextInput
-														style={styles.bodyText}
-														maxLength={10}
-														value={this.state.pin}
-														keyboardType="default"
-														onChangeText={(text) => this.setState({ pin: text })}
-														style={{ width: 150 }}
-													/>
-												</View>
-												<View style={{ flex: 1, flexDirection: 'row' }}>
-													<Text style={styles.bodyText} >Voltage  </Text>
-													<TextInput
-														style={styles.bodyText}
-														maxLength={10}
-														value={this.state.voltage}
-														keyboardType="default"
-														onChangeText={(text) => this.setState({ voltage: text })}
-														style={{ width: 150 }}
-													/>
-													<Text style={styles.bodyText} >watt</Text>
-												</View>
-											</View>
-										</Body>
-									</Left>
+									<Text style={styles.labelText} >Device Controller Name</Text>
+									<TextInput
+										style={styles.halfTextInput}
+										maxLength={10}
+										value={this.state.device_controller_name}
+										keyboardType="default"
+										onChangeText={(text) => this.setState({ device_controller_name: text })}
+									/>
+								</CardItem>
+								<CardItem>
+									<Text style={styles.labelText} >Device Controller Type</Text>
+									<Picker
+										style={styles.picker}
+										selectedValue={this.state.device_controller_type_id}
+										mode="dropdown"
+										onValueChange={(itemValue, itemIndex) => this.setState({ device_controller_type_id: itemValue })}>
+										<Picker.Item label="Fan" value="1" />
+										<Picker.Item label="Light" value="2" />
+									</Picker>
+								</CardItem>
+								<CardItem>
+									<Text style={styles.labelText} >Pin  </Text>
+									<TextInput
+										style={styles.shortTextInput}
+										maxLength={10}
+										value={this.state.pin}
+										keyboardType="default"
+										onChangeText={(text) => this.setState({ pin: text })}
+									/>
+								</CardItem>
+								<CardItem>
+									<Text style={styles.labelText} >Voltage  </Text>
+									<TextInput
+										style={styles.shortTextInput}
+										maxLength={10}
+										value={this.state.voltage}
+										keyboardType="default"
+										onChangeText={(text) => this.setState({ voltage: text })}
+										style={{ width: 150 }}
+									/>
+									<Text style={styles.labelText} >watt</Text>
+								</CardItem>
+								<CardItem>
 								</CardItem>
 							</Card>
 						</Content>
@@ -239,7 +232,7 @@ class DeviceDetails extends Component {
 						>
 							<Text style={styles.titleText} > Insert Device Controller </Text>
 						</TouchableOpacity>
-					</Container>
+					</Container >
 				);
 
 			}
@@ -252,57 +245,6 @@ class DeviceDetails extends Component {
 		}
 	}
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		flexDirection: 'column'
-	},
-	horizontal: {
-		flexDirection: 'row',
-		justifyContent: 'space-around',
-		padding: 10
-	},
-	button: {
-		alignItems: 'center',
-		backgroundColor: '#03618D',
-		padding: 20
-	},
-	titleText: {
-		fontSize: 18,
-		fontWeight: 'bold',
-		color: 'white'
-	},
-	picker: {
-		marginLeft: 25,
-		width: 250
-	},
-	textInput: {
-		fontSize: 18,
-		marginBottom: 7
-	},
-	dateInput: {
-		fontSize: 18,
-		marginBottom: 7,
-		width: 150
-	},
-	bodyText: {
-		fontSize: 18,
-		marginTop: 10,
-		marginLeft: 10
-	},
-	preview: {
-		flex: 1,
-		justifyContent: 'flex-end',
-		alignItems: 'center'
-	},
-	camerabutton: {
-		flex: 1,
-		justifyContent: 'flex-end',
-		alignItems: 'flex-end'
-	}
-})
-
 
 function mapDispatchToProps(dispatch) {
 	return {
