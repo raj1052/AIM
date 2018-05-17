@@ -47,7 +47,7 @@ class Login extends Component {
     console.log("authorization---->", authorization);
     if (user_id !== undefined && user_id > 0 && authorization !== undefined && authorization.length > 0) {
       headerSetting.authorization = authorization;
-      this.props.navigation.navigate("Drawer", { name: 'Jane' })
+      this.props.navigation.navigate("Drawer")
     } else {
       this.setState({ isLoading: false })
     }

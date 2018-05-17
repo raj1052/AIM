@@ -24,15 +24,15 @@ class AppHeader extends Component {
         super();
     }
 
-    render() {
+    render() {     
         const { back, navigation } = this.props;
-        console.log("------------------------------------->", navigation)
+        console.log("------------------------------------->", navigation, back)
         return (
             <Header backgroundColor="#03618D" >
                 <Left style={{ flex: 1, flexDirection: 'row' }}>
                     {
                         this.props.back && this.props.back !== undefined ?  
-                            <TouchableHighlight activeOpacity={5} underlayColor="#fff" onPress={() => this.props.navigation.navigate('Device')}>
+                            <TouchableHighlight activeOpacity={5} underlayColor="#fff" onPress={() => navigation.navigation.goBack()}>
                                 <View>
                                     <Icon name="arrow-left" size={28} color="#fff" />
                                 </View>
@@ -42,7 +42,6 @@ class AppHeader extends Component {
                     <Title style={{ marginLeft: 15 }}>{this.props.name}</Title>
                 </Left>
                 <Right />
-
             </Header>
         );
     }

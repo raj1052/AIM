@@ -44,17 +44,32 @@ class Usage extends Component {
 		if (!this.state.isLoading) {
 			return (
 				<Container>
-					<AppHeader name="Usage Details" navigation={this.props.navigation} />
-					<View style={[styles.horizontal]}>
+					<AppHeader name="Usage Details" navigation={this.props} back={true}/>
+					<View style={styles.horizontal}>
 						<Content>
-							<Card >
-								<CardItem header bordered>
-									<Text>Your Total Usage </Text>
-								</CardItem>
-							</Card>
 							<Card style={{ marginBottom: 0, marginLeft: 0, marginRight: 0, backgroundColor: '#E4E5E7' }}>
 								<CardItem header bordered>
-									<Text>Your Total Usage </Text>
+									<Body style={styles.horizontal}>
+										<Text style={styles.labelText}>Your Total Bill will be      </Text>
+										<Icon name="currency-inr" size={30} color="#5C5C5C"/>
+										<Text style={styles.highlightText}>{this.state.data.data !== undefined ? this.state.data.data.total_rate : 0}</Text>
+									</Body>
+								</CardItem>
+							</Card>
+							<Card >
+								<CardItem header bordered>
+									<Body style={styles.horizontal}>
+										<Text style={styles.labelText}>Your Total Usage      </Text>
+										<Text style={styles.highlightText}>{this.state.data.data !== undefined ? this.state.data.data.total_unit : 0}</Text>
+										<Text>  Units</Text>
+									</Body>
+								</CardItem>
+							</Card>
+							<Card >
+								<CardItem header style={{ backgroundColor: "#03618D" }}>
+									<Body style={styles.horizontal}>
+										<Text style={styles.highlightWhiteText}>Controller Usage</Text>
+									</Body>
 								</CardItem>
 							</Card>
 						</Content>
@@ -70,25 +85,25 @@ class Usage extends Component {
 											</CardItem>
 											<CardItem bordered>
 												<Body style={styles.horizontal}>
-													<Text style={styles.LabelText}>Controller Name   </Text>
+													<Text style={styles.labelText}>Controller Name   </Text>
 													<Text>{d.device_controller_name}</Text>
 												</Body>
 											</CardItem>
 											<CardItem bordered>
 												<Body style={styles.horizontal}>
-												<Text style={styles.LabelText}>Total Usage(In units)   </Text>
-												<Text>{d.total_unit}</Text>
+													<Text style={styles.labelText}>Total Usage(In units)   </Text>
+													<Text>{d.total_unit}</Text>
 												</Body>
 											</CardItem>
 											<CardItem bordered>
 												<Body style={styles.horizontal}>
-													<Text style={styles.LabelText}>Total Rate   </Text>
+													<Text style={styles.labelText}>Total Rate   </Text>
 													<Text>{d.total_rate}</Text>
 												</Body>
 											</CardItem>
 											<CardItem footer >
 												<Text>Current Status          </Text>
-												<Text>{d.status === 1 ? "ON": "OFF"}</Text>
+												<Text>{d.status === 1 ? "ON" : "OFF"}</Text>
 											</CardItem>
 										</Card>
 									)
@@ -114,16 +129,22 @@ const styles = StyleSheet.create({
 		flexDirection: 'column'
 	},
 	horizontal: {
-		flexDirection: 'row'
+		flexDirection: 'row',
+		margin: 'auto'
 	},
 	button: {
 		alignItems: 'center',
 		backgroundColor: '#03618D',
 		padding: 20
 	},
-	LabelText: {
+	labelText: {
 		fontSize: 16,
 		fontWeight: 'bold'
+	},
+	highlightText: {
+		fontSize: 24,
+		fontWeight: 'bold',
+		color: "#5C5C5C"
 	},
 	textInput: {
 		fontSize: 18,
@@ -133,7 +154,12 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		marginTop: 10,
 		marginLeft: 10
-	}
+	},
+	highlightWhiteText: {
+		fontSize: 20,
+		fontWeight: 'bold',
+		color: "#fff"
+	},
 })
 
 

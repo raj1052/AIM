@@ -1,68 +1,66 @@
-const React = require("react-native");
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 
-const { StyleSheet, Dimensions, Platform } = React;
+let { height, width } = Dimensions.get("window");
 
-const deviceHeight = Dimensions.get("window").height;
-const deviceWidth = Dimensions.get("window").width;
-
-export default styles = theme => ({
-  text: {
-    color: "#D8D8D8",
-    marginTop: 5
-  },
+export default styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFF"
+    flex: 1,
+    flexDirection: 'column'
+  },
+  horizontal: {
+		flexDirection: 'row',
+		margin: 'auto'
+  },
+  vertical: {
+    flex: 1,
+    flexDirection: 'column',
+    margin: 'auto',
   },
   sidebar: {
     flex: 1,
     backgroundColor: "#fff"
   },
-  drawerCover: {
-    alignSelf: "stretch",
-    // resizeMode: 'cover',
-    height: deviceHeight / 3.5,
-    width: null,
-    position: "relative",
-    marginBottom: 10
-  },
   drawerImage: {
     position: "absolute",
     // left: (Platform.OS === 'android') ? 30 : 40,
-    left: Platform.OS === "android" ? deviceWidth / 10 : deviceWidth / 9,
+    left: Platform.OS === "android" ? width / 10 : width / 9,
     // top: (Platform.OS === 'android') ? 45 : 55,
-    top: Platform.OS === "android" ? deviceHeight / 13 : deviceHeight / 12,
+    top: Platform.OS === "android" ? height / 13 : height / 12,
     width: 210,
     height: 75,
     resizeMode: "cover"
   },
-  listItemContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center"
+  titleText: {
+    fontSize: 18,
+    marginTop: height * 0.01,
+    alignItems: 'center',
+		fontWeight: 'bold',
+		color: 'white'
   },
-  iconContainer: {
-    width: 37,
-    height: 37,
-    borderRadius: 18,
-    marginRight: 12,
-    paddingTop: Platform.OS === "android" ? 7 : 5
+  labelText: {
+		fontSize: 16,
+		fontWeight: 'bold'
+	},
+  halfTextInput: {
+		fontSize: 18,
+    width: width / 2
+	},
+  button: {
+		alignItems: 'center',
+    backgroundColor: '#03618D',
+    height: height * 0.05
   },
-  sidebarIcon: {
-    fontSize: 21,
-    color: "#fff",
-    lineHeight: Platform.OS === "android" ? 21 : 25,
-    backgroundColor: "transparent",
-    alignSelf: "center"
+  bodyText: {
+		fontSize: 18,
+		color: 'grey'
   },
-  text: {
-    fontWeight: Platform.OS === "ios" ? "500" : "400",
-    fontSize: 16,
-    marginLeft: 20
+  loding: {
+		flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around'
   },
-  badgeText: {
-    fontSize: Platform.OS === "ios" ? 13 : 11,
-    fontWeight: "400",
-    textAlign: "center",
-    marginTop: Platform.OS === "android" ? -3 : undefined
+  smallPicker: {
+    width: width / 2
   }
 });

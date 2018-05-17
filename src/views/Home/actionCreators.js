@@ -55,7 +55,7 @@ export function changeDeviceStatus(values) {
                     console.log("result------------------------------->", result);
                     dispatch(AppActions.hideLoader());
                     Alert.alert("Your device status is successfully changed");
-                    this.props.navigation.navigate("Home", { name: 'Jane' })
+                    this.props.navigation.navigate("Home")
                     // else
                     //     Alert(result.data.error.message);
                     resolve(true);

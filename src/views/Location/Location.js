@@ -8,6 +8,7 @@ import { HTTP, setStorage, getStorage } from '../../services';
 import * as actionCreators from './actionCreators';
 import { Container, Header, Content, Card, CardItem, Text, Body, Button, Form, Left, Title, Right } from 'native-base';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { container, bodyText, button, horizontal, labelText, loding, smallPicker, halfTextInput } from '../../components/styles';
 
 class Location extends Component {
 	constructor(props) {
@@ -16,7 +17,7 @@ class Location extends Component {
 			data: "",
 			isLoading: true,
 			addLocation: false,
-			locationName:"",
+			locationName: "",
 			deviceLocationTypeId: 1,
 			deviceLocationId: 0
 		}
@@ -27,18 +28,10 @@ class Location extends Component {
 		console.log("--------------------->");
 		this.props.actions.getLocations();
 		this.setState({ isLoading: false });
-		// this.setState({
-		//     data : []
-		// })
 	}
 
 	componentWillReceiveProps(nextProps) {
 		console.log("componentWillReceiveProps---------->", nextProps.data);
-		// if (this.props.location.state && this.props.location.state.isListing) {
-		//   this.setState({
-		//     isListing: this.props.location.state.isListing
-		//   })
-		// }
 		this.setState({ isLoading: true });
 		if (nextProps.data !== undefined && nextProps.data !== null) {
 			this.setState({
@@ -52,105 +45,99 @@ class Location extends Component {
 
 	handleAddDevice = async () => {
 		this.setState({ addLocation: true });
-		// let formData = {
-		// 	"device_location_id" : this.state.locationId,
-		// 	"device_type_id": this.state.deviceId,
-		// 	"device_key": this.state.deviceKey,
-		// 	"secretKey": this.state.secretKey
-		// }
-		// console.log("formdata------------------------------>", formData);
-		// this.setState({isLoading: true});
-		// await this.props.actions.insertUserDevice(formData);
-		// this.setState({isLoading: false});
 	}
 
-	handleInsertLocation = async () => {
-		this.setState({ addLocation: true });
+	handleSubmitLocation = async () => {
+		this.setState({ isLoading: true });
 		let formData = {
 			"device_location_id": this.state.deviceLocationId,
 			"device_location_type_id": this.state.deviceLocationTypeId,
 			"location_name": this.state.locationName
 		}
 		console.log("formdata----------------->", formData);
-		await this.props.actions.insertLocation(formData);
-		// await this.props.actions.getData();
-		// this.setState({ addDevice: false });
+		await this.props.actions.saveLocation(formData);
+		this.setState({ isLoading: false, addLocation: false,  locationName : "", deviceLocationTypeId: 1, deviceLocationId: 0});
+		await this.props.actions.getLocations();
+	}
+
+	handleEdit = async (d) => {
+		console.log("data----------->", d);
+		this.setState({ isLoading: true });		
+		this.setState({
+			locationName: d.location_name,
+			deviceLocationId: d.device_location_id,
+			deviceLocationTypeId: d.device_location_type_id
+		})
+		this.setState({ isLoading: false, addLocation: true });
+	}
+
+	handleDelete = async (d) => {
+		this.setState({ isLoading: true });
+		await this.props.actions.deleteLocation(d.device_location_id);
+		await this.props.actions.getLocations();
+		this.setState({ isLoading: false });
 	}
 
 	render() {
 		console.log("state--------------------------->", this.state);
-		var width = Dimensions.get('window').width;
 		if (!this.state.isLoading) {
 			if (!this.state.addLocation) {
 				return (
-					<Container style={styles.container}>
-						<AppHeader name="AIM" navigation={this.props.navigation} />
+					<Container>
+						<AppHeader name="Locations" navigation={this.props} back={true} />
 						<Content padder>
-							<ScrollView contentContainerStyle={{ marginBottom: 5 }}>
-								{this.state.data.data !== undefined && this.state.data.data.map((d, i) => {
-									return (
-										<Content key={i}>
-											<Card>
-												<CardItem>
-													<Left>
+							<View>
+								<ScrollView>
+									{this.state.data.data !== undefined && this.state.data.data.map((d, i) => {
+										return (
+											<Card key={i}>
+												<View style={styles.horizontal}>
+													<CardItem header bordered>
 														{
-															d.device_location_type_id === 1 && <Icon name="home-modern" size={30} color="#4486F7" />
+															d.device_location_type_id === 1 && <Icon name="home" size={30} color="#4486F7" />
 														}
 														{
-															d.device_location_type_id === 2 && <Icon name="domain" size={30} color="#4486F7" />
-														}
-														{
-															d.device_location_type_id === 3 && <Icon name="city" size={30} color="#4486F7" />
-														}
-														<Body>
-															<View style ={{ flex: 1, flexDirection: 'row'}}>
-																<Text style={styles.bodyText}>Location Name:</Text>
-																<Text style={{ marginLeft: 15 }}>{d.location_name}</Text>
-															</View>
-															<View style ={{ flex: 1, flexDirection: 'row'}}>
-																<Text style={styles.bodyText}>Location Type:</Text>
-																<Text style={{ marginLeft: 15 }}>{d.device_location_type}</Text>
-															</View>
-														</Body>
-													</Left>
-													<Right>
-														<Icon name="delete" size={30} color="#DE0702" />
-													</Right>
-												</CardItem>
-												{/* <CardItem>
-													<Left>
-														{
-															d.device_location_type_id === 1 && <Icon name="home-modern" size={30} color="#4486F7" />
-														}
-														{
-															d.device_location_type_id === 2 && <Icon name="domain" size={30} color="#4486F7" />
+															d.device_location_type_id === 2 && <Icon name="home-modern" size={30} color="#4486F7" />
 														}
 														{
 															d.device_location_type_id === 3 && <Icon name="city" size={30} color="#4486F7" />
 														}
-													</Left>
-													<Body>
-													<Text> Location Name: </Text>
-													<CardItem>
-													<View style={{ flex: 1, flexDirection: 'row'}}>
-														
-														<Text style={{ marginLeft: 25 }} >
-															{d.location_name}
-														</Text>
+													</CardItem>
+													<View style={styles.vertical}>
+														<CardItem bordered>
+															<Body style={styles.horizontal}>
+																<Text style={styles.labelText}>Location Name :   </Text>
+																<Text>{d.location_name}</Text>
+															</Body>
+														</CardItem>
+														<CardItem bordered>
+															<Body style={styles.horizontal}>
+																<Text style={styles.labelText}>Location Type :   </Text>
+																<Text>{d.device_location_type}</Text>
+															</Body>
+														</CardItem>
 													</View>
-												</CardItem>
-												<CardItem footer>
-													<Text style={styles.bodyText} > Location Type: </Text>
-													<Text style={{ marginLeft: 25 }}>{d.device_location_type}</Text>
-												</CardItem>
-													</Body>
-												</CardItem> */}
-
+													<CardItem header bordered />
+													<CardItem header bordered>
+														<TouchableOpacity
+															onPress={() => { this.handleEdit(d) }}
+														>
+															<Icon name="pencil" size={25} color="#03618D" />
+														</TouchableOpacity>
+													</CardItem>
+													<CardItem header bordered>
+														<TouchableOpacity
+															onPress={() => { this.handleDelete(d) }}
+														>
+															<Icon name="delete" size={25} color="#DE0702" />
+														</TouchableOpacity>
+													</CardItem>
+												</View>
 											</Card>
-										</Content>
-									);
-								})}
-							</ScrollView>
+										);
+									})}
+								</ScrollView>
+							</View>
 						</Content>
 						<TouchableOpacity
 							style={styles.button}
@@ -158,7 +145,6 @@ class Location extends Component {
 						>
 							<Text style={styles.titleText} > Add new Location </Text>
 						</TouchableOpacity>
-
 					</Container>
 				);
 			} else {
@@ -167,84 +153,63 @@ class Location extends Component {
 					<Container style={styles.container}>
 						<AppHeader back="Location" name="Add New Location" />
 						<Content padder>
-							<Form>
-								<TextInput
-									placeholder="Location Name"
-									style={styles.textInput}
-									maxLength={25}
-									keyboardType="default"
-									onChangeText={(text) => this.setState({ locationName: text })}
-								/>
-								<View style={{ flex: 1, flexDirection: 'row' }}>
-									<Icon name="home-map-marker" size={30} color="#4486F7" style={{marginLeft: 5}}/>
-									<Text style={styles.bodyText} > Select Location Type</Text>
-									<Picker
-										style={{ marginBottom: 7, width: width / 2, marginLeft: width/8 }}
-										selectedValue={this.state.deviceLocationTypeId}
-										mode = 'dropdown'
-										onValueChange={(itemValue, itemIndex) => this.setState({ deviceLocationTypeId: itemValue })}>
-										<Picker.Item label="Home" value="1" />
-										<Picker.Item label="Organization" value="2" />
-										<Picker.Item label="Public Place" value="3" />
-									</Picker>
-								</View>
-								
-							</Form>
+							<View>
+								<Card>
+									<CardItem header bordered>
+										<Text>{this.state.deviceLocationId === 0 ? "Add Location" : "Edit Location"}</Text>
+									</CardItem>
+									<CardItem bordered>
+										<Body style={styles.horizontal}>
+											<TextInput
+												placeholder="Location Name"
+												style={styles.halfTextInput}
+												maxLength={25}
+												keyboardType="default"
+												value={this.state.locationName}
+												onChangeText={(text) => this.setState({ locationName: text })}
+											/>
+										</Body>
+									</CardItem>
+									<CardItem bordered>
+										<Body style={styles.horizontal}>
+											<Text style={styles.bodyText} >Location Type</Text>
+										</Body>
+									</CardItem>
+									<CardItem bordered>
+										<Body style={styles.horizontal}>
+											<Picker
+												style={styles.smallPicker}
+												selectedValue={this.state.deviceLocationTypeId}
+												mode='dropdown'
+												onValueChange={(itemValue, itemIndex) => this.setState({ deviceLocationTypeId: itemValue })}>
+												<Picker.Item label="Home" value="1" />
+												<Picker.Item label="Organization" value="2" />
+												<Picker.Item label="Public Place" value="3" />
+											</Picker>
+										</Body>
+									</CardItem>
+								</Card>
+							</View>
 						</Content>
 						<TouchableOpacity
 							style={styles.button}
-							onPress={this.handleInsertLocation}
+							onPress={this.handleSubmitLocation}
 						>
-							<Text style={styles.titleText} > Insert Location </Text>
+							<Text style={styles.titleText} > { this.state.deviceLocationId === 0 ? 'Insert Location' : 'Change Location' }</Text>
 						</TouchableOpacity>
 
 					</Container>
 				);
 			}
 		} else {
-			<View style={[styles.container, styles.horizontal]}>
-				<ActivityIndicator size="large" color="#0000ff" />
-			</View>
+			return (
+				<View style={styles.loding}>
+					<ActivityIndicator size="large" color="#0000ff" />
+				</View>
+			)
 		}
 	}
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		flexDirection: 'column'
-	},
-	horizontal: {
-		flexDirection: 'row',
-		justifyContent: 'space-around',
-		padding: 10
-	},
-	button: {
-		alignItems: 'center',
-		backgroundColor: '#03618D',
-		padding: 20
-	},
-	titleText: {
-		fontSize: 18,
-		fontWeight: 'bold',
-		color: 'white'
-	},
-	// picker: {
-	// 	marginBottom: 7,
-	// 	width: width/2
-	// },
-	textInput: {
-		fontSize: 18,
-		marginBottom: 7
-	},
-	bodyText: {
-		fontSize: 18,
-		marginTop: 5,
-		color: 'grey',
-		marginLeft: 15
-	}
-})
-
 
 function mapDispatchToProps(dispatch) {
 	return {
