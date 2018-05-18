@@ -89,5 +89,13 @@ export default styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 7,
     width: 150
+  },
+  chart:{
+    height: height * 0.25
+  },
+  cardHeaderText:{
+    fontSize: 30,
+    color: '#00A6AC',
+    fontWeight: 'bold'
   }
 });

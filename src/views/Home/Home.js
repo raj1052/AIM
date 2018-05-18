@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-// import { View } from "react-native";
-// import { Container,Text,Content, Button } from "native-base";
 import styles from "../../components/styles";
 import { AppHeader } from '../../components/AppHeader'
-// import { Alert } from 'react-native'
 
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
@@ -19,22 +16,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Defs, LinearGradient, Stop, Circle, G, Line, Rect } from 'react-native-svg'
 import { LineChart, Grid } from 'react-native-svg-charts'
 import * as shape from 'd3-shape'
-
-// import {
-// 	Container,
-// 	Header,
-// 	Title,
-// 	Content,
-// 	Button,
-// 	Item,
-// 	Label,
-// 	Input,
-// 	Body,
-// 	Left,
-// 	Right,
-// 	Form,
-// 	Text
-// } from "native-base";
+import { container, bodyText, button, horizontal, labelText, loding, smallPicker, halfTextInput, chart } from '../../components/styles';
 
 import { Client, Message } from 'react-native-paho-mqtt';
 
@@ -99,11 +81,11 @@ class Home extends Component {
 	}
 
 	ComponentWillMount() {
-		Alert.alert("", "ComponentWillMount From Home")
+
 	}
 
 	ComponentDidMount() {
-		Alert.alert("", "ComponentDidMount From Home")
+
 	}
 
 	async handleSubmit() {
@@ -207,14 +189,25 @@ class Home extends Component {
 
 		console.log("state------------------->", this.state);
 		return (
-			<Container style={styles.container}>
-				<AppHeader name="Home" navigation={this.props.navigation} />
+			<Container>
+				<AppHeader name="Home" navigation={this.props} />
 				<Content padder>
 					<Text onPress={this.handleSubmit}>{this.state.data}</Text>
-					<ScrollView contentContainerStyle={{ marginBottom: 5 }}>
+					<ScrollView>
 						<Card>
+							<CardItem>
+								<View style={styles.horizontal}>
+									<Left>
+										<Icon name="thermometer-lines" size={30} color="#03618D" />
+										<Text style={styles.labelText}>Temperature</Text>
+									</Left>
+									<Right>
+										<Text style={styles.cardHeaderText}>{`${data[5]}ºC`}</Text>
+									</Right>
+								</View>
+							</CardItem>
 							<LineChart
-								style={{ height: 200 }}
+								style={styles.chart}
 								data={data}
 								contentInset={{ top: 20, bottom: 20 }}
 								svg={{
@@ -225,9 +218,7 @@ class Home extends Component {
 								<Grid />
 								<Gradient />
 								<HorizontalLine />
-								<Text style={styles.bodyText}>{`${data[5]}ºC`}</Text>
 							</LineChart>
-
 						</Card>
 
 						<Card>
